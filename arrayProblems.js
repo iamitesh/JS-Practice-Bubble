@@ -1,7 +1,7 @@
 //maximum number of an array
 
-let marks = [10, 30, 21, 61, 42, 65];
-
+let marks = [100, 30, 321, 261, 42, 265];
+let number = 5;
 const findMax = (arr) => {
     if (!arr.length) {
         return "Empty Arr"
@@ -77,23 +77,65 @@ const removeDup = (arr) => {
 const rotateArr = (arr) => {
     const rotated = [];
     for (let i = arr.length - 1; i >= 0; i--) {
-        rotated[rotated.length]=arr[i];
+        rotated[rotated.length] = arr[i];
     }
     return rotated;
 }
 // console.log(rotateArr([1, 3, 5, 7, 9]))
 
+const rotateArrOptmz = (arr) => {
+
+    for (let i = arr.length - 1, j = 0; i >= (arr.length - 1) / 2; i--, j++) {
+        [arr[i], arr[j]] = [arr[j], arr[i]]
+    }
+    return arr;
+}
+// console.log(rotateArr([1, 3, 5, 7, 9,11]))
+
 const arrRearrange = (arr) => {
     const arrEven = [];
     const arrOdd = [];
 
-    for (let i = 1; i < arr.length; i++) {      
-        if(arr[i]%2==0)  
-        arrEven[arrEven.length]=arr[i];
-        else{arrOdd[arrOdd.length]=arr[i];}
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] % 2 == 0)
+            arrEven[arrEven.length] = arr[i];
+        else { arrOdd[arrOdd.length] = arr[i]; }
     }
-    return [...arrEven,...arrOdd];
+    return [...arrEven, ...arrOdd];
 }
-console.log(arrRearrange([1, 2, 3, 5, 6, 7, 8, 9]))
+// console.log(arrRearrange([1, 2, 3, 5, 6, 7, 8, 9]))
+
+// isArray
+// console.log([marks.constructor===Array]) //true
+// console.log(Object.prototype.toString.call(marks))//Array
+
+const twoDArr = [1, [2, 3, [5]]]
+//cloning
+// console.log([...twoDArr])
+
+//BubbleSort
+const BubbleSort = (arr) => {
+    for (i = 0; i < arr.length; i++) {
+        for (j = i + 1; j < arr.length; j++) {
+            if (arr[i] > arr[j]) {
+                [arr[i], arr[j]] = [arr[j], arr[i]]
+            }
+        }
+    }
+    return arr;
+}
+// console.log(BubbleSort(marks))
+const InsertionSort = (arr) => {
+    for (i = 1; i < arr.length; i++) {
+        key = arr[i]
+        for (j = i - 1; j >= 0 && arr[j] > key; j--) {
+            arr[j + 1] = arr[j]
+        }
+        arr[j + 1] = key
+    }
+    return arr;
+}
+console.log(InsertionSort(marks))
+
 
 
