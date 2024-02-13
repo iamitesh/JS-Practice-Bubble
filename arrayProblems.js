@@ -113,10 +113,12 @@ const twoDArr = [1, [2, 3, [5]]]
 //cloning
 // console.log([...twoDArr])
 
+//https://rajat-m.medium.com/implement-5-sorting-algorithms-using-javascript-63c5a917e811
 //BubbleSort
+//space complexity is O(1) and the average time complexity is O(n²)
 const BubbleSort = (arr) => {
     for (i = 0; i < arr.length; i++) {
-        for (j = i + 1; j < arr.length; j++) {
+        for (j = i + 1; j = arr.length - i - 1; j++) {
             if (arr[i] > arr[j]) {
                 [arr[i], arr[j]] = [arr[j], arr[i]]
             }
@@ -124,7 +126,7 @@ const BubbleSort = (arr) => {
     }
     return arr;
 }
-// console.log(BubbleSort(marks))
+console.log(BubbleSort(marks))
 const InsertionSort = (arr) => {
     for (i = 1; i < arr.length; i++) {
         key = arr[i]
@@ -135,7 +137,31 @@ const InsertionSort = (arr) => {
     }
     return arr;
 }
-console.log(InsertionSort(marks))
+// console.log(InsertionSort(marks))
+
+const SelectionSort = (arr) => {
+    for (i = 0; i < arr.length - 1; i++) {
+        key = i
+        for (j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[key]) {
+                key = j;
+            }
+        }
+        [arr[i], arr[key]] = [arr[key], arr[i]];
+    }
+    return arr;
+}
+// console.log(SelectionSort(marks))
+
+const MergeSort = (arr) => {
+    for (i = 0; i < arr.length - 1; i++) {
+
+        for (j = i + 1; j < arr.length; j++) {
+        }
+    }
+    return arr;
+}
+// console.log(MergeSort(marks))
 
 
 
